@@ -1,209 +1,108 @@
-import Head from 'next/head'
+import Box from "@sweatpants/box";
+import Inline from "@sweatpants/inline";
+import { format } from "date-fns";
+import CardLink from "../components/CardLink";
+import GithubIcon from "../components/GithubIcon";
+import DocumentIcon from "../components/DocumentIcon";
+import Footer from "../components/Footer";
+import Head from "../components/Head";
+import projects from "../content/projects";
+import social from "../content/social";
+import meta from "../content/meta";
+import { getAllPosts } from "../lib/api";
 
-export default function Home() {
+export default function Home(props) {
+  const { posts } = props;
+
   return (
-    <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div>
+      <Head {...meta} />
+      <Box as="main">
+        <Box fontSize="2rem" fontWeight="600" mb="400">
+          Jon Ambas
+        </Box>
+        <Box color="gray">
+          Lead UX engineer at SparkPost, building design systems.
+        </Box>
 
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+        <Box mt="800" mb="400">
+          Projects
+        </Box>
 
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Box
+          display="grid"
+          gridTemplateColumns={["repeat(1, 1fr)", "repeat(3, 1fr)"]}
+          gridGap="400"
+          maxWidth="60rem"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
+          {projects.map((project, i) => (
+            <CardLink
+              key={i}
+              icon={GithubIcon}
+              href={project.href}
+              type="external"
+            >
+              <CardLink.Title>{project.title}</CardLink.Title>
+              <CardLink.Description>{project.description}</CardLink.Description>
+            </CardLink>
+          ))}
+        </Box>
 
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
+        <Box mt="800" mb="400">
+          Posts
+        </Box>
 
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
+        <Box
+          display="grid"
+          gridTemplateColumns={["repeat(1, 1fr)", "repeat(3, 1fr)"]}
+          gridGap="400"
+          maxWidth="60rem"
+        >
+          {posts.map((post, i) => (
+            <CardLink
+              key={i}
+              icon={DocumentIcon}
+              href={`posts/${post.slug}`}
+              type="internal"
+            >
+              <CardLink.Title>{post.title}</CardLink.Title>
+              <CardLink.Description>
+                {format(new Date(post.date), "MMM d yyyy")}
+              </CardLink.Description>
+            </CardLink>
+          ))}
+        </Box>
 
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
+        <Box mt="800" mb="400">
+          Social
+        </Box>
 
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
+        <Inline space="200">
+          {social.map((profile, i) => (
+            <CardLink
+              key={i}
+              href={profile.href}
+              type="external"
+              display="inline-block"
+              p="300"
+            >
+              <CardLink.Description>{profile.title}</CardLink.Description>
+            </CardLink>
+          ))}
+        </Inline>
+      </Box>
+      <Footer />
     </div>
-  )
+  );
+}
+
+export async function getStaticProps() {
+  const posts = getAllPosts(["title", "date", "slug"]);
+  const startIndex = 0;
+  const endIndex = 10;
+  const prevPosts = null;
+  const nextPosts = endIndex >= posts.length ? null : 2;
+  return {
+    props: { posts: posts.slice(startIndex, endIndex), prevPosts, nextPosts },
+  };
 }

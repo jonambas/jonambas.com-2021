@@ -1,0 +1,102 @@
+---
+title: Creating a Color Palette
+author: Jon Ambas
+date: "2020-08-21"
+description: "How SparkPost's UX team crafted a design system color palette"
+image: "/images/OGColors.png"
+---
+
+Last year, my team at SparkPost set out to craft a new color palette for our design system, <a href="https://design.sparkpost.com/">Matchbox</a>. With a new focus on accessibility, and a rapidly growing app, it was clear our palette needed a refresh.
+
+<Image
+  layout="fill"
+  src="/images/ColorEvolution.png"
+  caption="SparkPost's color palette over the years"
+  alt="Growth and evolution of SparkPost's color palette over the years"
+/>
+
+## Colors are hard
+
+Historically, we've always favored a limited palette with few color options. We believe that more choices encourage misuse and can lead to inconsistency in an interface.
+
+However, it became apparent that our design system didn't have what we needed to support a growing component library or our array of data visualizations, while meeting accessibility standards. We realized how demanding designing browser-based interfaces can be, where the smallest difference in a color can cause an interface to fail accessibility testing. Our palettes needed a redo – and here's how we did it.
+
+<Image
+  layout="fill"
+  src="/images/SampleVariance.png"
+  caption="A dropdown menu and date picker illustrating the amount of grays used in common UI elements"
+  alt="A dropdown menu and date picker illustrating the amount of grays used in common UI elements"
+/>
+
+## Grays
+
+Neutrals are important because they provide visual cues and establish structure and hierarchy to interfaces. These colors will be used more than any other color scale, from typography to drawing boundaries, so it was important for us to get it right.
+
+We started with a gray scale of fourteen grays, with the intention of testing it and cutting it down. Using the HSB (hue-saturation-brightness) model, we created grays ranging from a brightness of 24 to 96, with even intervals in between. We chose to start our scale at 24, as opposed to a darker color, because our front end interfaces are predominantly bright and we needed lighter lights more than we needed darker darks.
+
+<Image
+  layout="fill"
+  src="/images/NeutralScales.png"
+  caption="We removed these muddy midtones"
+  alt="Grayscale showing midtones that we removed"
+/>
+
+After evaluating this scale with common UI elements and typography, we recognized the need to eliminate muddy midtones, which provide little to no contrast with other colors in the scale.
+
+## Midtones
+
+Implementing fewer midtones lowers the risk of a designer or developer using a low-contrast color combination and maximizes the number of available accessible pairings.
+
+<Image
+  layout="fill"
+  src="/images/Chart.png"
+  caption="Our grayscale colors tested against each other for WCAG compliance"
+  alt="Chart showing our grayscale colors tested against each other for WCAG compliance"
+/>
+
+The chart above shows a color contrast ratios mapping of our grays against each other, highlighting the midtones we removed. We wanted to make sure that the neutrals we chose had a contrast ratio of at least 4.5:1 to our dark or light backgrounds in order to meet <a href="https://www.w3.org/TR/WCAG21/#contrast-enhanced">WCAG AAA requirements</a>.
+
+## Hues
+
+When we were finally happy with our neutral grays, we applied the same brightness scale to our other hues. This ensures that, like our grayscale, our hues would have accessible color pairings within their spectrums. This involved countless hours of tweaking eighty different shades of colors, but the end result was well worth the effort.
+
+<Image
+  layout="fill"
+  src="/images/Grayscale.png"
+  caption="We used a white layer with the color blending mode to transform colors to a grayscale"
+  alt="Illustration on what a white layer with the color blending mode looks like"
+/>
+
+Through expanded scales of tints and shades, our designers and developers have the flexibility to consistently build complex interfaces. No more one-off or conflicting custom colors. Anyone who uses our design system has the palette needed to easily create color combinations of their own that are accessible.
+
+## Testing
+
+With a full color palette in place, we then evaluated whether or not it would work for our users. We continued to tweak our colors through rounds of UI prototyping, and color-blind user interviews. Tools such as <a href="https://www.getstark.co/">Stark</a> and <a href="https://projects.susielu.com/viz-palette">Viz Palette</a> were incredibly helpful in this regard.
+
+After testing and further refining our colors, we were confident we created a reliable color system that we could build UIs with.
+
+<Image
+  layout="fill"
+  src="/images/Examples.png"
+  caption="Example of SparkPost's new colors in use"
+  alt="UI mockups of SparkPost's new colors in use"
+/>
+
+## Closing Notes
+
+We're really proud of all the work we've done to build a flexible and accessible design system color palette. The color foundations we've established not only improve the experience of all SparkPost users by providing accessible UIs, but help us iterate faster as designers and developers by using a consistent and flexible color system.
+
+If you want to learn more about our design system, visit our <a href="https://design.sparkpost.com/">design system's website</a>.
+
+---
+
+### Resources
+
+- <a href="https://medium.com/eightshapes-llc/color-in-design-systems-a1c80f65fa3">
+    Color in Design Systems
+  </a>
+  , by <a href="https://twitter.com/nathanacurtis">@nathancurtis</a>
+- <a href="https://medium.com/carbondesign/because-colors-are-beautiful-52dd4cc39f09">
+    Because, colors are beautiful
+  </a>
+  , by <a href="https://twitter.com/shixieshi">@shixieshi</a>

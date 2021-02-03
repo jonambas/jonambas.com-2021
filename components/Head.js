@@ -14,6 +14,7 @@ function Head(props) {
       <meta name="twitter:description" content={props.description} />
       <meta name="description" content={props.description} />
       <meta name="twitter:creator" content="@jonambas" />
+      <link rel="shortcut icon" href="/favicon.ico" />
     </NextHead>
   );
 }

@@ -6,7 +6,6 @@ import styled from "styled-components";
 const StyledLink = styled(Box)`
   box-sizing: border-box;
   text-decoration: none;
-
   border: 1px solid ${({ theme }) => theme.colors.blue};
 
   &:hover,

@@ -2,8 +2,10 @@ import Box from "@sweatpants/box";
 import Inline from "@sweatpants/inline";
 import { format } from "date-fns";
 import CardLink from "../components/CardLink";
+import ButtonLink from "../components/ButtonLink";
 import GithubIcon from "../components/GithubIcon";
 import DocumentIcon from "../components/DocumentIcon";
+import ArrowRightIcon from "../components/ArrowRightIcon";
 import Footer from "../components/Footer";
 import Head from "../components/Head";
 import projects from "../content/projects";
@@ -21,11 +23,19 @@ export default function Home(props) {
         <Box fontSize="2rem" fontWeight="600" mb="400">
           Jon Ambas
         </Box>
-        <Box color="gray">
+        <Box color="gray" mb="600">
           Lead UX engineer at SparkPost, building design systems.
         </Box>
+        <Box>
+          <ButtonLink href="/resume">
+            <Box as="span" pr="200">
+              Resume
+            </Box>
+            <ArrowRightIcon />
+          </ButtonLink>
+        </Box>
 
-        <Box mt="800" mb="400">
+        <Box mt="900" mb="400">
           Projects
         </Box>
 

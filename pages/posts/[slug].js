@@ -36,10 +36,12 @@ const components = {
 };
 
 export default function Post(props) {
-  const { content, title, date, description, ...rest } = props;
+  const { content, title, date, description, canonical, ...rest } = props;
   return (
     <Box m="0 auto" maxWidth="880px" lineHeight="1.5em">
-      <Head title={title} description={description} />
+      <Head title={title} description={description}>
+        {canonical ? <link rel="canonical" href={canonical} /> : null}
+      </Head>
       <div>
         <article>
           <Box
@@ -87,6 +89,7 @@ export async function getStaticProps({ params }) {
     "slug",
     "content",
     "description",
+    "canonical",
   ]);
 
   return {

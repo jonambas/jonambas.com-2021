@@ -7,32 +7,33 @@ import Head from "../../components/Head";
 import Image from "../../components/Image";
 import CardLink from "../../components/CardLink";
 import Footer from "../../components/Footer";
+import Code from "../../components/Code";
+import Clamp from "../../components/Clamp";
 import ArrowLeftIcon from "../../components/ArrowLeftIcon";
-
-function Clamped(props) {
-  const { serif, ...rest } = props;
-  return (
-    <Box
-      gridColumn="2/3"
-      mt="0"
-      mb="400"
-      fontFamily={serif ? "serif" : "sans"}
-      {...rest}
-    >
-      {props.children}
-    </Box>
-  );
-}
 
 const components = {
   Image,
-  h1: (props) => <Clamped as="h1" pt="300" {...props} />,
-  h2: (props) => <Clamped as="h2" pt="300" {...props} />,
-  h3: (props) => <Clamped as="h3" pt="300" {...props} />,
+  Code,
+  Clamp,
+  h1: (props) => <Clamp as="h1" pt="400" {...props} />,
+  h2: (props) => <Clamp as="h2" pt="400" {...props} />,
+  h3: (props) => <Clamp as="h3" pt="400" {...props} />,
   p: (props) => (
-    <Clamped as="p" lineHeight="1.8em" serif fontSize="17px" {...props} />
+    <Clamp as="p" lineHeight="1.8em" serif fontSize="17px" {...props} />
   ),
-  ul: (props) => <Clamped as="ul" {...props} />,
+  ul: (props) => <Clamp as="ul" {...props} />,
+  inlineCode: (props) => (
+    <Box
+      bg="lightGray"
+      fontFamily="mono"
+      fontSize="82%"
+      as="span"
+      px="100"
+      borderRadius="3px"
+    >
+      {props.children}
+    </Box>
+  ),
 };
 
 export default function Post(props) {
@@ -48,7 +49,7 @@ export default function Post(props) {
             display="grid"
             gridTemplateColumns={["2% 1fr 2%", "15% 1fr 15%"]}
           >
-            <Clamped>
+            <Clamp>
               <CardLink href="/" type="internal" p="200" display="inline-block">
                 <CardLink.Description>
                   <Box display="flex" alignItems="center">
@@ -59,22 +60,17 @@ export default function Post(props) {
                   </Box>
                 </CardLink.Description>
               </CardLink>
-            </Clamped>
-            <Clamped
-              as="h1"
-              mt={["600", "900"]}
-              fontSize="3rem"
-              lineHeight="1em"
-            >
+            </Clamp>
+            <Clamp as="h1" mt={["600", "900"]} fontSize="3rem" lineHeight="1em">
               {title}
-            </Clamped>
-            <Clamped as="p" mb={["600", "900"]} color="gray" fontSize="0.9rem">
+            </Clamp>
+            <Clamp as="p" mb={["600", "900"]} color="gray" fontSize="0.9rem">
               {format(new Date(date), "MMM d yyyy")}
-            </Clamped>
+            </Clamp>
             <MDX components={components}>{content}</MDX>
-            <Clamped>
+            <Clamp>
               <Footer />
-            </Clamped>
+            </Clamp>
           </Box>
         </article>
       </div>

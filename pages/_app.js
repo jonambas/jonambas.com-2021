@@ -11,6 +11,25 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.blue};
     transition: 0.15s;
   }
+
+  .code code span {
+    font-size: 14px;
+    font-weight: 500;
+    font-family: ${({ theme }) => theme.fonts.mono};
+    line-height: 1.8em;
+  }
+
+  .code pre {
+    margin: 0 !important;
+    padding: 0;
+    border: none !important;
+  }
+
+  .code {
+    border: ${({ theme }) => theme.borders.card};
+    border-radius: 4px;
+    overflow-x: auto;
+  }
 `;
 
 function JonsApp({ Component, pageProps }) {
@@ -36,6 +55,7 @@ function JonsApp({ Component, pageProps }) {
           lightBlue: "#cce3ff",
           lighterBlue: "#e8f3ff",
           gray: "#626f7a",
+          lightGray: "#d9e0e6",
           black: "#000",
         },
         borders: {
@@ -47,6 +67,8 @@ function JonsApp({ Component, pageProps }) {
             "Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
           sans:
             "-apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Helvetica, sans-serif;",
+          mono:
+            "'SFMono-Regular', Monaco, Consolas, 'Lucida Console', monospace",
         },
       }}
     >

@@ -1,0 +1,218 @@
+---
+title: React Component API Standards
+author: Jon Ambas
+date: "2021-03-09"
+description: "React component API patterns, conventions, and guidelines. Through building component libraries over the years, my team at SparkPost have created React components that are both hated and loved by our engineers. We noticed patterns and conventions that work, and some that don't. The following is an attempt to document some of our opinions on these patterns, to ensure we're creating the best developer experience possible."
+---
+
+Through building component libraries over the years, my team at SparkPost have created React components that are both hated and loved by our engineers. We noticed patterns and conventions that work, and some that don't.
+
+The following is an attempt to document some of our opinions on these patterns, to ensure we're creating the best developer experience possible.
+
+## Composition
+
+Using `props.children` is the preferred way of enabling component composition. In certain situations, to limit the number of composable permutations, it may be permissible to explicitly define a React node type prop.
+
+<Code
+  code={`
+// Dont' do
+<ActionList actions={[{ content: 'Content' }]} />
+`}
+/>
+
+<Code
+  code={`
+// Do
+<ActionList>
+  <ActionList.Action>Content</ActionList.Action>
+</ActionList>
+// Also okay
+<TextField suffix={<Icon />} helpText={<Help />} />
+`}
+/>
+
+## Spreading
+
+Component props should never be spread to an underlying DOM element directly without being picked or altered. This pollutes the DOM with unwanted and unknown props, and produces bugs.
+
+<Code
+  code={`
+// Don't do
+function MyComponent(props) {
+  return (
+    <div {...props} />
+  )
+}
+`}
+/>
+
+## Native Attributes
+
+Native attributes, such as `className` or `id`, should not be renamed. You could save time by avoiding documentation.
+
+<Code
+  code={`
+// Don't do
+function MyComponent(props) {
+  const { class, componentId, handleClick } = props;
+  return (
+    <div
+      className={class}
+      id={componentId}
+      onClick={handleClick}
+    />
+  )
+}
+`}
+/>
+
+<Code
+  code={`
+// Do
+function MyComponent(props) {
+  const { className, id, onClick } = props;
+  return (
+    <div
+      className={className}
+      id={id}
+      onClick={onClick}
+    />
+  )
+}
+`}
+/>
+
+## Boolean Prop Naming
+
+Boolean prop names should be chosen based on their **default value**. For example, a `disabled` prop on an `input` element, or an `open` prop on an overlay.
+
+<Code
+  code={`
+// Don't do
+<Popover closed={false} />
+<Button enabled={false} />
+`}
+/>
+
+<Code
+  code={`
+// Do
+<Popover open />
+<Button disabled />
+`}
+/>
+
+## Prop Naming Consistency
+
+Prop names and enumerable prop values with similar functionality across different components should be consistent.
+
+<Code
+  code={`
+// Don't do
+<Stack align="center" />
+<Inline horizontalAlign="middle" />
+`}
+/>
+
+<Code
+  code={`
+// Do
+<Stack align="center" />
+<Inline align="center" />
+`}
+/>
+
+## Enums vs Booleans
+
+Always default to enums over booleans, when the variants or permutations are mutually exclusive.
+
+<Code
+  code={`
+// Don't do
+<Text center /><Tag red />`}
+/>
+
+<Code
+  code={`
+// Do
+<Text textAlign="center" />
+<Tag color="red" />
+`}
+/>
+
+## Control
+
+Controlled `input` components should be controlled via `value` and `onChange` props.
+
+Controlled components should always be able to function in an uncontrolled manner, when `value` is not provided. Default state should be configured via `defaultValue`.
+
+## Refs
+
+Refs should always be forwarded, either to the outermost DOM element, or to the most applicable element of the component. For example form components should forward refs to `<input/>`.
+
+<Code
+  language="javascript"
+  code={`
+// Do
+const MyInput = React.forwardRef(function MyInput(props, userRef) {
+  return (
+    <div>
+      <input ref={userRef} />
+    </div>
+  )
+})
+`}
+/>
+
+## Avoid renderThing Methods
+
+Avoid methods that produce JSX markup separately from a components return statement. This typically means that the render method can be abstracted to a separate component.
+
+<Code
+  code={`// Don't do
+function MyComponent() {
+  const thingOne = React.useMemo(() => <div>render a thing </div>, []);
+  const renderThingTwo = () => <div>render another thing</div>;
+  return (
+    <div>
+      {thingOne}
+      {renderThingTwo()}
+    </div>
+  );
+} `}
+/>
+
+<Code
+  language="jsx"
+  code={`// Do
+function MyComponent() {
+return (
+  <div>
+    <ThingOne />
+    <ThingTwo />
+  </div>
+  );
+} `}
+/>
+
+## Other Conventions to Avoid
+
+Avoid render props (or children functions), and higher order components. If you need to pass state to a component, create a reusable hook instead.
+
+<Code
+  code={`
+// Don't do
+<Component>
+  {(state) => (
+    <div />
+  )}
+</Component>
+
+<Component render={(state) => <div />} />
+`} />
+
+<Code
+  language="javascript"
+  code={`// Don't do
+export default withState(Component);`}
+/>

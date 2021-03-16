@@ -2,7 +2,7 @@ export default [
   {
     href: "https://github.com/SparkPost/matchbox",
     title: "Matchbox",
-    description: "SparkPost's design system",
+    description: "SparkPost's component library",
   },
   {
     href: "https://github.com/SparkPost/libby-react",
@@ -18,5 +18,10 @@ export default [
     href: "https://github.com/jonambas/proply",
     title: "Proply",
     description: "A tool to help explore React app's component usage",
+  },
+  {
+    href: "https://github.com/jonambas/sketch-reporter",
+    title: "Sketch Reporter",
+    description: "A UI Kit coverage reporter for Sketch",
   },
 ];

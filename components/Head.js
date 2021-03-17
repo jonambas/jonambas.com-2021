@@ -16,7 +16,7 @@ function Head(props) {
       <meta property="og:title" content={props.title} />
       <meta property="og:description" content={props.description} />
       <meta property="og:type" content="website" />
-      <meta name="author" content="Jon Ambas">
+      <meta name="author" content="Jon Ambas" />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={props.title} />
       <meta name="twitter:description" content={props.description} />

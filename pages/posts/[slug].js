@@ -37,10 +37,10 @@ const components = {
 };
 
 export default function Post(props) {
-  const { content, title, date, description, canonical, ...rest } = props;
+  const { content, title, date, description, canonical, image } = props;
   return (
     <Box m="0 auto" maxWidth="880px" lineHeight="1.5em">
-      <Head title={title} description={description}>
+      <Head title={title} description={description} image={image}>
         {canonical ? <link rel="canonical" href={canonical} /> : null}
       </Head>
       <div>
@@ -86,6 +86,7 @@ export async function getStaticProps({ params }) {
     "content",
     "description",
     "canonical",
+    "image",
   ]);
 
   return {

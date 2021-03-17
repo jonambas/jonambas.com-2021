@@ -14,6 +14,12 @@ function Head(props) {
       <meta name="twitter:description" content={props.description} />
       <meta name="description" content={props.description} />
       <meta name="twitter:creator" content="@jonambas" />
+      {props.image ? (
+        <>
+          <meta name="twitter:image" content={props.image} />
+          <meta property="og:image" content={props.image} />
+        </>
+      ) : null}
       <link rel="shortcut icon" href="/favicon.ico" />
       {props.children}
     </NextHead>

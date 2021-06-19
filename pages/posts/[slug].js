@@ -10,23 +10,25 @@ import Footer from "../../components/Footer";
 import Code from "../../components/Code";
 import Clamp from "../../components/Clamp";
 import ArrowLeftIcon from "../../components/ArrowLeftIcon";
+import readingTime from "reading-time";
 
 const components = {
   Image,
   Code,
   Clamp,
-  h1: (props) => <Clamp as="h1" pt="400" {...props} />,
-  h2: (props) => <Clamp as="h2" pt="400" {...props} />,
-  h3: (props) => <Clamp as="h3" pt="400" {...props} />,
+  h1: (props) => <Clamp as="h1" pt="500" {...props} />,
+  h2: (props) => <Clamp as="h2" pt="500" {...props} />,
+  h3: (props) => <Clamp as="h3" pt="500" {...props} />,
+  h4: (props) => <Clamp as="h4" pt="500" {...props} />,
   p: (props) => (
-    <Clamp as="p" lineHeight="1.8em" serif fontSize="17px" {...props} />
+    <Clamp as="p" lineHeight="1.9em" serif fontSize="18px" {...props} />
   ),
   ul: (props) => (
-    <Clamp as="ul" lineHeight="1.8em" serif fontSize="17px" {...props} />
+    <Clamp as="ul" lineHeight="1.9em" serif fontSize="18px" {...props} />
   ),
   inlineCode: (props) => (
     <Box
-      bg="lightGray"
+      bg="lightBlue"
       fontFamily="mono"
       fontSize="82%"
       as="span"
@@ -50,6 +52,8 @@ const components = {
 
 export default function Post(props) {
   const { content, title, date, description, canonical, image } = props;
+  const readTime = readingTime(content, { wordsPerMinute: 180 });
+
   return (
     <Box m="0 auto" maxWidth="880px" lineHeight="1.5em">
       <Head title={title} description={description} image={image}>
@@ -77,7 +81,7 @@ export default function Post(props) {
               {title}
             </Clamp>
             <Clamp as="p" mb={["600", "900"]} color="gray" fontSize="0.9rem">
-              {format(new Date(date), "MMM d yyyy")}
+              {format(new Date(date), "MMM d yyyy")} &middot; {readTime.text}
             </Clamp>
             <MDX components={components}>{content}</MDX>
             <Clamp>

@@ -55,7 +55,7 @@ const CardLink = React.forwardRef(function CardLink(props, userRef) {
 
 const Title = React.forwardRef(function Title(props, userRef) {
   return (
-    <Box ref={userRef} fontSize="1rem" pr="300">
+    <Box ref={userRef} fontSize="1rem" lineHeight="1.2em" pr="500">
       {props.children}
     </Box>
   );

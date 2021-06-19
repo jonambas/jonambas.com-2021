@@ -1,0 +1,65 @@
+---
+title: Lessons Learned from a UX Engineer
+author: Jon Ambas
+date: "2021-06-19"
+image: "/images/OGColors.png"
+description: "Advice from a UX Engineer to anyone building design systems"
+---
+
+Four years ago, I started work on what would become a [fully grown design system](http://design.sparkpost.com/). Little did I know, my [tiny CSS library](https://github.com/SparkPost/styles) would evolve into a system of over 50 components, built by a team that I now lead. I won't tell the whole story of my journey, but wanted to share a few lessons I've learned along the way – sometimes, the hard way.
+
+## Crawl before you walk
+
+Start small. Don't jump into large, complicated [organisms](https://bradfrost.com/blog/post/atomic-web-design/#organisms) before you've sorted out and are confident in your [atoms](https://bradfrost.com/blog/post/atomic-web-design/#atoms). And especially don't do it just because you see other established design systems in the wild [do it](https://polaris.shopify.com/components/structure/page#navigation). Remember that just because something works for someone else doesn't mean it's the best solution for you.
+
+A handful of primitive, but powerful components can go a very long way. Smaller components are easier to maintain, test, and understand how to use. Think of something like [Box](https://seek-oss.github.io/braid-design-system/components/Box) or [Stack](https://seek-oss.github.io/braid-design-system/components/Stack). (Our [Box](https://design.sparkpost.com/components/box/api) component is so popular that its used [two times more](https://ux-okr-dashboard.netlify.app/) than our [Button](https://design.sparkpost.com/components/button/api) component.
+
+Pay extreme attention to your component APIs. Components change over time to support the needs of your actively growing product or brand. Release each component with this in mind, [stick to standards](https://jonambas.com/posts/component-api-standards), and keep them consistent with each other. The engineers using your tools will thank you for it, and save time by not having to refactor in the long run.
+
+## Check your pulse, often
+
+Don't run around with your head in the sand. Have a plan to [measure and evaluate](https://medium.com/eightshapes-llc/measuring-design-system-success-d0513a93dd96) where your design system stands. Without knowing how much impact you are making, it'll be difficult to get your team the visibility and [buy-in](https://www.invisionapp.com/inside-design/getting-executive-ok-design-system/) from others across your organization.
+
+Chart your course and [set OKRs](https://www.whatmatters.com/resources/google-okr-playbook/). Having something measurable gives you visibility into what your design system lacks, where it struggles, and how you can improve. It also gives you a north star, a strategy, or goals to reach.
+
+## Play nice
+
+Remember to listen to your customers – your engineers, designers, and product people. Make yourself available to others. If you close yourself off from your organization, don't expect your tools to gain adoption. Outline how your team works with others:
+
+- Create communication channels to get in touch with your team, whether that's through Slack, Confluence, Github, whatever
+- Make it easy to give feedback
+- Empower others to jump in by guiding them through contribution
+- Set up office hours or pairing sessions to discuss feedback and to answer questions
+- Plan on how to regularly keep others in the loop with what you are working on
+- Announce your metrics, your goals, and your wins
+
+## Make friends
+
+Your work will have an impact on many teams. Design systems inherently sit at the crossroads of design, engineering, and product. You'll need stay in tune with what others are working on, and keep your work aligned as it relates to everyone else's – all through the relationships you develop and nurture across teams.
+
+Without building trust with those around you, you'll find it difficult to gain the cross-team communication, collaboration, and camaraderie needed to make an impact.
+
+---
+
+My experiences may be unique to my time at SparkPost, but I hope this advice helps you wherever you are in your design systems journey.
+
+If you have any questions or comments, feel free to reach out to me on [Twitter](https://twitter.com/jonambas), or find me on the [Design Systems Slack group](https://design.systems/slack/).
+
+---
+
+## TL;DR
+
+Less is more
+
+Measure, measure, measure
+
+Don't be an asshole
+
+---
+
+### Resources
+
+- [Atomic Design – Brad Frost](https://bradfrost.com/blog/post/atomic-web-design/)
+- [Measuring Design System Success – Nathan Curtis](https://medium.com/eightshapes-llc/measuring-design-system-success-d0513a93dd96)
+- [Guide: Set goals with OKRs – Google](https://rework.withgoogle.com/guides/set-goals-with-okrs/steps/introduction/)
+- [Getting Executive Buy-in For Your Design System – Invision](https://www.invisionapp.com/inside-design/getting-executive-ok-design-system/)

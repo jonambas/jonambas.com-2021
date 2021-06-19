@@ -21,7 +21,9 @@ const components = {
   p: (props) => (
     <Clamp as="p" lineHeight="1.8em" serif fontSize="17px" {...props} />
   ),
-  ul: (props) => <Clamp as="ul" {...props} />,
+  ul: (props) => (
+    <Clamp as="ul" lineHeight="1.8em" serif fontSize="17px" {...props} />
+  ),
   inlineCode: (props) => (
     <Box
       bg="lightGray"
@@ -33,6 +35,16 @@ const components = {
     >
       {props.children}
     </Box>
+  ),
+  hr: () => (
+    <Clamp
+      as="hr"
+      my="700"
+      width="100%"
+      border="none"
+      borderBottom="1px solid gray"
+      borderColor="lightGray"
+    />
   ),
 };
 

@@ -34,7 +34,7 @@ Using `props.children` is the preferred way of enabling component composition. I
 
 ## Spreading
 
-Component props should never be spread to an underlying DOM element directly without being picked or altered. This pollutes the DOM with unwanted and unknown props, and produces bugs.
+Component props should be rarely spread to an underlying DOM element directly without being picked or altered. This can pollute the DOM with unwanted and unknown props, and produces bugs.
 
 <Code
   code={`

@@ -29,8 +29,8 @@ export default {
             <>
               Design, build, and maintain{" "}
               <a href="https://github.com/SparkPost/matchbox">Matchbox</a>, a
-              design system, saving SparkPost 580 design hours and 1,400
-              engineering hours
+              design system, saving SparkPost 4,100 design hours and 9,500
+              engineering hours per year
             </>,
             "Anticipate how product decisions and aspects of the design system affect the design, engineering and user experience",
             "Produce prototypes to support the research, design, development and testing of new product features",

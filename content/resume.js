@@ -18,7 +18,7 @@ export default {
   ],
   jobs: [
     {
-      company: "SparkPost",
+      company: "SparkPost (MessageBird)",
       positions: [
         {
           position: "Lead UX Engineer",

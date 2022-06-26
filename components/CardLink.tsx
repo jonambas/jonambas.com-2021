@@ -74,7 +74,14 @@ const CardLink = React.forwardRef<HTMLAnchorElement, CardLinkProps>(
 const Title = React.forwardRef<HTMLDivElement, { children?: React.ReactNode }>(
   function Title(props, userRef) {
     return (
-      <Box ref={userRef} fontSize="1rem" lineHeight="1.2em" pr="500">
+      <Box
+        as="span"
+        display="block"
+        ref={userRef}
+        fontSize="1rem"
+        lineHeight="1.2em"
+        pr="500"
+      >
         {props.children}
       </Box>
     );
@@ -86,7 +93,14 @@ const Description = React.forwardRef<
   { children?: React.ReactNode }
 >(function Description(props, userRef) {
   return (
-    <Box ref={userRef} color="gray" fontSize="0.9rem" lineHeight="1.3em">
+    <Box
+      as="span"
+      display="block"
+      ref={userRef}
+      color="gray"
+      fontSize="0.9rem"
+      lineHeight="1.3em"
+    >
       {props.children}
     </Box>
   );

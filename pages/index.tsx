@@ -76,10 +76,10 @@ const Home: NextPage<{ posts: Record<string, any>[] }> = (props) => {
               href={`/posts/${post.slug}`}
               type="internal"
             >
-              <CardLink.Title>{post.title}</CardLink.Title>
+              {/* <CardLink.Title>{post.title}</CardLink.Title>
               <CardLink.Description>
                 {format(new Date(post.date), "MMM d yyyy")}
-              </CardLink.Description>
+              </CardLink.Description> */}
             </CardLink>
           ))}
         </Box>

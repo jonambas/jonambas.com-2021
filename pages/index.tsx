@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from "next";
 import { Box } from "@sweatpants/box";
 import { Inline } from "@sweatpants/inline";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import CardLink from "../components/CardLink";
 import ButtonLink from "../components/ButtonLink";
 import GithubIcon from "../components/GithubIcon";
@@ -76,10 +76,10 @@ const Home: NextPage<{ posts: Record<string, any>[] }> = (props) => {
               href={`/posts/${post.slug}`}
               type="internal"
             >
-              {/* <CardLink.Title>{post.title}</CardLink.Title>
+              <CardLink.Title>{post.title}</CardLink.Title>
               <CardLink.Description>
-                {format(new Date(post.date), "MMM d yyyy")}
-              </CardLink.Description> */}
+                {format(parseISO(post.date), "MMM d yyyy")}
+              </CardLink.Description>
             </CardLink>
           ))}
         </Box>

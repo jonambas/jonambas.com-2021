@@ -37,9 +37,7 @@ function JonsApp({ Component, pageProps }: AppProps) {
   return (
     <Theme>
       <GlobalStyle />
-      <Box m={["500", "600", "800"]}>
-        <Component {...pageProps} />
-      </Box>
+      <Box m={["500", "600", "800"]}>{/* <Component {...pageProps} /> */}</Box>
     </Theme>
   );
 }

@@ -59,7 +59,7 @@ const CardLink = React.forwardRef<HTMLAnchorElement, CardLinkProps>(
           ref={userRef}
         >
           <Stack space="200">{children}</Stack>
-          <Box position="absolute" right="400" top="400">
+          <Box as="span" position="absolute" right="400" top="400">
             {Icon && <Icon />}
           </Box>
         </StyledWrapper>

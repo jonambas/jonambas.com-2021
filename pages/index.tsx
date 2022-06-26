@@ -69,7 +69,7 @@ const Home: NextPage<{ posts: Record<string, any>[] }> = (props) => {
           gridGap="400"
           maxWidth="60rem"
         >
-          {/* {posts.map((post, i) => (
+          {posts.map((post, i) => (
             <CardLink
               key={i}
               icon={DocumentIcon}
@@ -81,7 +81,7 @@ const Home: NextPage<{ posts: Record<string, any>[] }> = (props) => {
                 {format(new Date(post.date), "MMM d yyyy")}
               </CardLink.Description>
             </CardLink>
-          ))} */}
+          ))}
         </Box>
 
         <Box mt="800" mb="400">

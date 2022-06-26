@@ -1,5 +1,6 @@
 import React from "react";
-import MDX from "@mdx-js/runtime";
+import * as runtime from "react/jsx-runtime";
+import { compile, run } from "@mdx-js/mdx";
 import { Box } from "@sweatpants/box";
 import { format } from "date-fns";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
@@ -52,7 +53,17 @@ const components = {
 
 export default function Post(props) {
   const { content, title, date, description, canonical, image } = props;
-  const readTime = readingTime(content, { wordsPerMinute: 180 });
+  const [mdx, setMdx] = React.useState();
+  const Content = mdx ? mdx.default : null;
+  const readTime = content
+    ? readingTime(content, { wordsPerMinute: 180 })
+    : null;
+
+  React.useEffect(() => {
+    (async () => {
+      setMdx(await run(content, runtime));
+    })();
+  }, [content]);
 
   return (
     <Box m="0 auto" maxWidth="880px" lineHeight="1.5em">
@@ -81,9 +92,9 @@ export default function Post(props) {
               {title}
             </Clamp>
             <Clamp as="p" mb={["600", "900"]} color="gray" fontSize="0.9rem">
-              {format(new Date(date), "MMM d yyyy")} &middot; {readTime.text}
+              {format(new Date(date), "MMM d yyyy")} &middot; {readTime?.text}
             </Clamp>
-            <MDX components={components}>{content}</MDX>
+            {Content && <Content components={components} />}
             <Clamp>
               <Footer />
             </Clamp>
@@ -106,9 +117,7 @@ export async function getStaticProps({ params }) {
   ]);
 
   return {
-    props: {
-      ...post,
-    },
+    props: post,
   };
 }
 

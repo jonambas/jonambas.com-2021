@@ -1,4 +1,4 @@
-export default [
+const projects = [
   {
     href: "https://github.com/SparkPost/matchbox",
     title: "Matchbox",
@@ -30,3 +30,5 @@ export default [
     description: "A UI Kit coverage reporter for Sketch",
   },
 ];
+
+export default projects;

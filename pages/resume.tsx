@@ -10,8 +10,8 @@ import meta from "../content/meta";
 function Experience(props) {
   return (
     <Box as="ul">
-      {props.experience.map((item) => (
-        <Box as="li" mb="400" lineHeight="1.4em">
+      {props.experience.map((item, i) => (
+        <Box as="li" mb="400" lineHeight="1.4em" key={i}>
           {item}
         </Box>
       ))}
@@ -41,9 +41,9 @@ export default function Resume() {
       </Box>
 
       <Box mb="800">
-        {resume.jobs.map((job) => {
+        {resume.jobs.map((job, i) => {
           return (
-            <Box mb="800">
+            <Box mb="800" key={i}>
               <Box as="h4" mb="100">
                 {job.positions
                   ? `${job.positions[0].position}, `
@@ -51,9 +51,9 @@ export default function Resume() {
                 {job.company}
               </Box>
               {job.positions ? (
-                job.positions.map((position) => {
+                job.positions.map((position, i) => {
                   return (
-                    <Box my="600">
+                    <Box my="600" key={i}>
                       <Box mb="100">{position.position}</Box>
                       <Box mb="500">
                         <Box fontSize="0.9em" as="em">

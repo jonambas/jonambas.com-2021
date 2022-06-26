@@ -1,6 +1,6 @@
 import React from "react";
 import * as runtime from "react/jsx-runtime";
-import { compile, run } from "@mdx-js/mdx";
+import { run } from "@mdx-js/mdx";
 import { Box } from "@sweatpants/box";
 import { format } from "date-fns";
 import { getPostBySlug, getAllPosts } from "../../lib/api";

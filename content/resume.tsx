@@ -1,6 +1,6 @@
 import React from "react";
 
-export default {
+const resume = {
   meta: {
     name: "Jon Ambas",
     email: "jon@jonambas.com",
@@ -77,3 +77,5 @@ export default {
     school: "University of Maryland, College Park",
   },
 };
+
+export default resume;

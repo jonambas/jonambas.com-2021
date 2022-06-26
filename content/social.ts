@@ -1,4 +1,4 @@
-export default [
+const social = [
   {
     href: "https://github.com/jonambas",
     title: "Github",
@@ -16,3 +16,5 @@ export default [
     title: "Linkedin",
   },
 ];
+
+export default social;

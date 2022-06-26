@@ -1,3 +1,4 @@
+import type { AppProps } from "next/app";
 import { Box } from "@sweatpants/box";
 import { createGlobalStyle } from "styled-components";
 import Theme from "../components/Theme";
@@ -32,7 +33,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-function JonsApp({ Component, pageProps }) {
+function JonsApp({ Component, pageProps }: AppProps) {
   return (
     <Theme>
       <GlobalStyle />

@@ -73,7 +73,7 @@ const Home: NextPage<{ posts: Record<string, any>[] }> = (props) => {
             <CardLink
               key={i}
               icon={DocumentIcon}
-              href={`posts/${post.slug}`}
+              href={`/posts/${post.slug}`}
               type="internal"
             >
               <CardLink.Title>{post.title}</CardLink.Title>

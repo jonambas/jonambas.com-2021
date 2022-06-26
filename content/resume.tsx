@@ -34,7 +34,7 @@ export default {
             </>,
             "Anticipate how product decisions and aspects of the design system affect the design, engineering and user experience",
             "Produce prototypes to support the research, design, development and testing of new product features",
-            "Manage projects, planning and scheduling for the frontend engineering and UX teams",
+            "Manage projects, planning and scheduling for frontend engineering and design teams",
             "Provide technical mentorship and guidance to frontend and UX engineers",
           ],
         },
@@ -43,13 +43,7 @@ export default {
           startDate: "October 2016",
           endDate: "June 2019",
           experience: [
-            <>
-              Worked closely with a distributed team of engineers responsible
-              for SparkPost's{" "}
-              <a href="https://github.com/SparkPost/2web2ui">
-                React web application
-              </a>
-            </>,
+            "Worked closely with a distributed team of engineers responsible for SparkPost's React web application",
             "Provided creative and technical guidance to marketing, product, developer relations, and other engineering teams on several projects",
           ],
         },

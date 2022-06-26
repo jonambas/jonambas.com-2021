@@ -1,7 +1,7 @@
 import { GetStaticProps, NextPage } from "next";
 import { Box } from "@sweatpants/box";
 import { Inline } from "@sweatpants/inline";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import CardLink from "../components/CardLink";
 import ButtonLink from "../components/ButtonLink";
 import GithubIcon from "../components/GithubIcon";
@@ -78,7 +78,7 @@ const Home: NextPage<{ posts: Record<string, any>[] }> = (props) => {
             >
               <CardLink.Title>{post.title}</CardLink.Title>
               <CardLink.Description>
-                {format(new Date(post.date), "MMM d yyyy")}
+                {format(parseISO(post.date), "MMM d yyyy")}
               </CardLink.Description>
             </CardLink>
           ))}
@@ -111,10 +111,8 @@ export const getStaticProps: GetStaticProps = async () => {
   const posts = getAllPosts(["title", "date", "slug"]);
   const startIndex = 0;
   const endIndex = 10;
-  const prevPosts = null;
-  const nextPosts = endIndex >= posts.length ? null : 2;
   return {
-    props: { posts: posts.slice(startIndex, endIndex), prevPosts, nextPosts },
+    props: { posts: posts.slice(startIndex, endIndex) },
   };
 };
 

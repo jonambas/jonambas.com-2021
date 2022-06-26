@@ -2,7 +2,7 @@ import React from "react";
 import * as runtime from "react/jsx-runtime";
 import { run } from "@mdx-js/mdx";
 import { Box } from "@sweatpants/box";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
 import Head from "../../components/Head";
 import Image from "../../components/Image";
@@ -92,7 +92,7 @@ export default function Post(props) {
               {title}
             </Clamp>
             <Clamp as="p" mb={["600", "900"]} color="gray" fontSize="0.9rem">
-              {format(new Date(date), "MMM d yyyy")} &middot; {readTime?.text}
+              {format(parseISO(date), "MMM d yyyy")} &middot; {readTime?.text}
             </Clamp>
             {Content && <Content components={components} />}
             <Clamp>

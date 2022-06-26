@@ -10,6 +10,11 @@ export default [
     description: "A React component dev & testing environment",
   },
   {
+    href: "https://github.com/jonambas/react-delver",
+    title: "React Delver",
+    description: "A node API to analyze JSX",
+  },
+  {
     href: "https://github.com/jonambas/sweatpants",
     title: "Sweatpants",
     description: "A component library built on styled-system",

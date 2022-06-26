@@ -1,5 +1,5 @@
 import React from "react";
-import Box from "@sweatpants/box";
+import { Box } from "@sweatpants/box";
 
 function Footer() {
   return (

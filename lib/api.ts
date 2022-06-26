@@ -1,14 +1,18 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { compileSync } from "@mdx-js/mdx";
 
 const postsDir = path.join(process.cwd(), "_posts");
 
-export function getPostSlugs() {
+export function getPostSlugs(): Array<string> {
   return fs.readdirSync(postsDir);
 }
 
-export function getPostBySlug(slug, fields = []) {
+export function getPostBySlug(
+  slug: string,
+  fields: Array<string> = []
+): Record<string, any> {
   const realSlug = slug.replace(/\.mdx$/, "");
   const fullPath = path.join(postsDir, `${realSlug}.mdx`);
   const contents = fs.readFileSync(fullPath, "utf8");
@@ -22,7 +26,12 @@ export function getPostBySlug(slug, fields = []) {
       result[field] = realSlug;
     }
     if (field === "content") {
-      result[field] = content;
+      const output = String(
+        compileSync(content, {
+          outputFormat: "function-body",
+        })
+      );
+      result[field] = output;
     }
     if (data[field]) {
       result[field] = data[field];
@@ -37,11 +46,6 @@ export function getAllPosts(fields = []) {
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
     // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? "-1" : "1"));
+    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
 }
-
-// export async function markdownToHtml(markdown) {
-//   const result = await remark().use(html).process(markdown);
-//   return result.toString();
-// }

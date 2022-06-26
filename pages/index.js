@@ -1,5 +1,5 @@
-import Box from "@sweatpants/box";
-import Inline from "@sweatpants/inline";
+import { Box } from "@sweatpants/box";
+import { Inline } from "@sweatpants/inline";
 import { format } from "date-fns";
 import CardLink from "../components/CardLink";
 import ButtonLink from "../components/ButtonLink";

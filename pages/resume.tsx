@@ -1,5 +1,5 @@
 import React from "react";
-import Box from "@sweatpants/box";
+import { Box } from "@sweatpants/box";
 import CardLink from "../components/CardLink";
 import Head from "../components/Head";
 import ArrowLeftIcon from "../components/ArrowLeftIcon";

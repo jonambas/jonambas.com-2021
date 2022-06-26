@@ -1,9 +1,9 @@
 import React from "react";
 
-const ArrowRightIcon = React.forwardRef(function ArrowRightIcon(
-  props,
-  userRef
-) {
+const ArrowRightIcon = React.forwardRef<
+  SVGSVGElement,
+  React.ComponentPropsWithRef<"svg">
+>(function ArrowRightIcon(props, userRef) {
   return (
     <svg
       viewBox="0 0 15 15"

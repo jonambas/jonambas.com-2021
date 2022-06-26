@@ -1,6 +1,9 @@
 import React from "react";
 
-const DocumentIcon = React.forwardRef(function DocumentIcon(props, userRef) {
+const DocumentIcon = React.forwardRef<
+  SVGSVGElement,
+  React.ComponentPropsWithRef<"svg">
+>(function DocumentIcon(props, userRef) {
   return (
     <svg
       viewBox="0 0 15 15"

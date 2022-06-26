@@ -1,7 +1,13 @@
 import React from "react";
 import NextHead from "next/head";
 
-function Head(props) {
+function Head(
+  props: React.PropsWithChildren<{
+    title?: string;
+    description?: string;
+    image?: string;
+  }>
+): JSX.Element {
   const origin = React.useMemo(() => {
     if (typeof window !== "undefined") {
       return window.location.origin;

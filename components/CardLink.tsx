@@ -6,7 +6,7 @@ import styled from "styled-components";
 
 type CardLinkProps = React.PropsWithChildren<{
   href: React.ComponentProps<typeof Link>["href"];
-  type?: "internal";
+  type?: "internal" | "external";
   icon?: React.ElementType;
 }> &
   BoxOwnProps;

@@ -3,7 +3,7 @@ import { Box } from "@sweatpants/box";
 import Link from "next/link";
 import styled from "styled-components";
 
-const StyledLink = styled(Box)`
+const StyledLink = styled(Box)<React.ComponentPropsWithRef<"a">>`
   box-sizing: border-box;
   text-decoration: none;
   border: 1px solid ${({ theme }) => theme.colors.blue};
@@ -21,7 +21,10 @@ const StyledLink = styled(Box)`
   }
 `;
 
-const ButtonLink = React.forwardRef(function ButtonLink(props, userRef) {
+const ButtonLink = React.forwardRef<
+  HTMLAnchorElement,
+  React.ComponentPropsWithRef<"a">
+>(function ButtonLink(props, userRef) {
   const { href, children } = props;
   return (
     <Link href={href}>
@@ -33,9 +36,9 @@ const ButtonLink = React.forwardRef(function ButtonLink(props, userRef) {
         bg="blue"
         borderRadius="3px"
         color="white"
-        textDecoration="none"
         p="300"
         fontSize="0.9rem"
+        ref={userRef}
       >
         {children}
       </StyledLink>

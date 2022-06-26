@@ -12,13 +12,17 @@ const ImageWrapper = styled.div`
   }
 `;
 
-const Image = React.forwardRef(function Image(props, userRef) {
-  const { src, alt, caption } = props;
+type ImageProps = {
+  caption?: React.ReactNode;
+} & React.ComponentPropsWithoutRef<typeof NextImage>;
+
+function Image(props: ImageProps) {
+  const { src, alt = "", caption, ...rest } = props;
   return (
     <Box py="600" gridColumn="1/4">
       <Box as="figure" display="block" m="0" textAlign="left">
         <ImageWrapper>
-          <NextImage alt={alt} src={src} layout="fill" />
+          <NextImage alt={alt} src={src} layout="fill" {...rest} />
         </ImageWrapper>
         <Box
           as="figcaption"
@@ -33,6 +37,6 @@ const Image = React.forwardRef(function Image(props, userRef) {
       </Box>
     </Box>
   );
-});
+}
 
 export default Image;

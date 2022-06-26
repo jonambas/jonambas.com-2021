@@ -1,7 +1,11 @@
 import React from "react";
-import { Box } from "@sweatpants/box";
+import { Box, BoxProps } from "@sweatpants/box";
 
-function Clamp(props) {
+type ClampProps = {
+  serif?: boolean;
+} & Omit<BoxProps<"div">, "color">;
+
+function Clamp(props: ClampProps) {
   const { serif, ...rest } = props;
   return (
     <Box

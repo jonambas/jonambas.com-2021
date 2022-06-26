@@ -1,3 +1,4 @@
+import { GetStaticProps, NextPage } from "next";
 import { Box } from "@sweatpants/box";
 import { Inline } from "@sweatpants/inline";
 import { format } from "date-fns";
@@ -13,7 +14,7 @@ import social from "../content/social";
 import meta from "../content/meta";
 import { getAllPosts } from "../lib/api";
 
-export default function Home(props) {
+const Home: NextPage<{ posts: Record<string, any>[] }> = (props) => {
   const { posts } = props;
 
   return (
@@ -104,9 +105,9 @@ export default function Home(props) {
       <Footer />
     </div>
   );
-}
+};
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = getAllPosts(["title", "date", "slug"]);
   const startIndex = 0;
   const endIndex = 10;
@@ -115,4 +116,6 @@ export async function getStaticProps() {
   return {
     props: { posts: posts.slice(startIndex, endIndex), prevPosts, nextPosts },
   };
-}
+};
+
+export default Home;

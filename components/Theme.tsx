@@ -1,7 +1,7 @@
 import React from "react";
 import { SweatpantsProvider } from "@sweatpants/theme";
 
-const Theme = (props) => {
+const Theme = (props: React.PropsWithChildren<{}>) => {
   return (
     <SweatpantsProvider
       theme={{

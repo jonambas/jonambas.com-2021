@@ -1,6 +1,9 @@
 import React from "react";
 
-const GithubIcon = React.forwardRef(function GithubIcon(props, userRef) {
+const GithubIcon = React.forwardRef<
+  SVGSVGElement,
+  React.ComponentPropsWithRef<"svg">
+>(function GithubIcon(props, userRef) {
   return (
     <svg
       viewBox="0 0 15 15"

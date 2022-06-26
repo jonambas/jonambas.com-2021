@@ -1,5 +1,5 @@
 {
-  "name": "learn-starter",
+  "name": "jonambas.com-2021",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -26,5 +26,8 @@
   "devDependencies": {
     "@mdx-js/loader": "^1.6.22",
     "gray-matter": "^4.0.2"
+  },
+  "engines": {
+    "npm": "^8.12.1"
   }
 }

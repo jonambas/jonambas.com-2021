@@ -1,6 +1,6 @@
 import React from "react";
 import MDX from "@mdx-js/runtime";
-import Box from "@sweatpants/box";
+import { Box } from "@sweatpants/box";
 import { format } from "date-fns";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
 import Head from "../../components/Head";

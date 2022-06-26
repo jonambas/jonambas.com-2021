@@ -1,5 +1,5 @@
-import Theme from "@sweatpants/theme";
-import Box from "@sweatpants/box";
+import { SweatpantsProvider } from "@sweatpants/theme";
+import { Box } from "@sweatpants/box";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
 
 function JonsApp({ Component, pageProps }) {
   return (
-    <Theme
+    <SweatpantsProvider
       theme={{
         space: {
           0: "0rem",
@@ -74,20 +74,8 @@ function JonsApp({ Component, pageProps }) {
       <Box m={["500", "600", "800"]}>
         <Component {...pageProps} />
       </Box>
-    </Theme>
+    </SweatpantsProvider>
   );
 }
-
-// Only uncomment this method if you have blocking data requirements for
-// every single page in your application. This disables the ability to
-// perform automatic static optimization, causing every page in your app to
-// be server-side rendered.
-//
-// App.getInitialProps = async (appContext) => {
-//   // calls page's `getInitialProps` and fills `appProps.pageProps`
-//   const appProps = await App.getInitialProps(appContext);
-//
-//   return { ...appProps }
-// }
 
 export default JonsApp;

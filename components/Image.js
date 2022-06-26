@@ -1,6 +1,6 @@
 import React from "react";
 import NextImage from "next/image";
-import Box from "@sweatpants/box";
+import { Box } from "@sweatpants/box";
 import styled from "styled-components";
 
 const ImageWrapper = styled.div`

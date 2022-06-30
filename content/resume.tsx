@@ -5,17 +5,6 @@ const resume = {
     name: "Jon Ambas",
     email: "jon@jonambas.com",
   },
-  skills: [
-    "JavaScript",
-    "React, Redux",
-    "Jest, Enzyme, Cypress",
-    "Webpack, Rollup",
-    "Sass, CSS",
-    "Styled Components",
-    "Adobe Creative Suite",
-    "Sketch",
-    "",
-  ],
   jobs: [
     {
       company: "SparkPost (MessageBird)",
@@ -25,7 +14,7 @@ const resume = {
           startDate: "June 2019",
           endDate: "Present",
           experience: [
-            "Work closely with designers and product managers to define, understand and clarify goals and product requirements",
+            "Work closely with product managers and designers to define, understand and clarify goals and product requirements",
             <>
               Design, build, and maintain{" "}
               <a href="https://github.com/SparkPost/matchbox">Matchbox</a>, a
@@ -33,8 +22,8 @@ const resume = {
               engineering hours per year
             </>,
             "Anticipate how product decisions and aspects of the design system affect the design, engineering and user experience",
-            "Produce prototypes to support the research, design, development and testing of new product features",
             "Manage projects, planning and scheduling for frontend engineering and design teams",
+            "Produce prototypes to support the research, design, development and testing of new product features",
             "Provide technical mentorship and guidance to frontend and UX engineers",
           ],
         },
@@ -43,7 +32,7 @@ const resume = {
           startDate: "October 2016",
           endDate: "June 2019",
           experience: [
-            "Worked closely with a distributed team of engineers responsible for SparkPost's React web application",
+            "Worked within a distributed team of engineers responsible for SparkPost's React web application",
             "Provided creative and technical guidance to marketing, product, developer relations, and other engineering teams on several projects",
           ],
         },
@@ -55,7 +44,7 @@ const resume = {
       startDate: "August 2015",
       endDate: "October 2016",
       experience: [
-        "Worked closely with a distributed team of engineers and designers to build Laravel applications",
+        "Worked with a distributed team of engineers and designers to build Laravel applications",
         "Produced wireframes and prototypes using Sketch, Invision, and After Effects",
         "Designed and created branding concepts, logos, and style guides",
         "Provided technical direction to other developers to assist the development of Wordpress websites",

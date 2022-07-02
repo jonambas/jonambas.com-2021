@@ -22,7 +22,7 @@ const resume = {
               engineering hours per year
             </>,
             "Anticipate how product decisions and aspects of the design system affect the design, engineering and user experience",
-            "Manage projects, planning and scheduling for frontend engineering and design teams",
+            "Manage projects, planning and prioritization for frontend engineering and design teams",
             "Produce prototypes to support the research, design, development and testing of new product features",
             "Provide technical mentorship and guidance to frontend and UX engineers",
           ],

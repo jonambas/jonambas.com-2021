@@ -27,13 +27,14 @@ const components = {
   ul: (props) => (
     <Clamp as="ul" lineHeight="1.9em" serif fontSize="18px" {...props} />
   ),
-  inlineCode: (props) => (
+  code: (props) => (
     <Box
       bg="lightBlue"
       fontFamily="mono"
-      fontSize="82%"
+      fontSize="0.8em"
       as="span"
-      px="100"
+      px="4px"
+      py="2px"
       borderRadius="3px"
     >
       {props.children}

@@ -12,55 +12,40 @@ The following is an attempt to document some of our opinions on these patterns, 
 
 ## Composition
 
-Using `props.children` is the preferred way of enabling component composition. In certain situations, to limit the number of composable permutations, it may be permissible to explicitly define a React node type prop.
+Use `props.children` to enable component composition. This limits the API surface area of a component and allows prop naming to become more predictable.
 
 <Code
   code={`
 // Dont' do
-<ActionList actions={[{ content: 'Content' }]} />
-`}
-/>
+<ActionList actions={[{ content: 'Content', onClick }]} />
+
+<Avatar size="sm" fallbackColor="blue" imageSrc={src} imageAlt="Text" />
+`} />
 
 <Code
   code={`
 // Do
 <ActionList>
-  <ActionList.Action>Content</ActionList.Action>
+  <ActionList.Action onClick={onClick}>Content</ActionList.Action>
 </ActionList>
-// Also okay
-<TextField suffix={<Icon />} helpText={<Help />} />
-`}
-/>
 
-## Spreading
-
-Component props should be rarely spread to an underlying DOM element directly without being picked or altered. This can pollute the DOM with unwanted and unknown props, and produces bugs.
-
-<Code
-  code={`
-// Don't do
-function MyComponent(props) {
-  return (
-    <div {...props} />
-  )
-}
-`}
-/>
+<Avatar size="sm" color="blue">
+  <Avatar.Image src={src} alt="Text" />
+</Avatar>
+`} />
 
 ## Native Attributes
 
-Native attributes, such as `className` or `id`, should not be renamed. You could save time by avoiding documentation.
+Native attributes or common props, such as `className`, `id` or `onClick`, should not be renamed. Don't force your engineers to learn APIs they already know.
 
 <Code
   code={`
 // Don't do
-function MyComponent(props) {
-  const { class, componentId, handleClick } = props;
+const Component = (props) => {
   return (
     <div
-      className={class}
-      id={componentId}
-      onClick={handleClick}
+      id={props.componentId}
+      onClick={props.handleClick}
     />
   )
 }
@@ -70,40 +55,13 @@ function MyComponent(props) {
 <Code
   code={`
 // Do
-function MyComponent(props) {
-  const { className, id, onClick } = props;
-  return (
-    <div
-      className={className}
-      id={id}
-      onClick={onClick}
-    />
-  )
+const Component = (props) => {
+  return <div {...props} />;
 }
 `}
 />
 
-## Boolean Prop Naming
-
-Boolean prop names should be chosen based on their **default value**. For example, a `disabled` prop on an `input` element, or an `open` prop on an overlay.
-
-<Code
-  code={`
-// Don't do
-<Popover closed={false} />
-<Button enabled={false} />
-`}
-/>
-
-<Code
-  code={`
-// Do
-<Popover open />
-<Button disabled />
-`}
-/>
-
-## Prop Naming Consistency
+## Prop Consistency
 
 Prop names and enumerable prop values with similar functionality across different components should be consistent.
 
@@ -120,6 +78,26 @@ Prop names and enumerable prop values with similar functionality across differen
 // Do
 <Stack align="center" />
 <Inline align="center" />
+`}
+/>
+
+## Boolean Props
+
+Boolean prop names should be chosen based on their **default value**. For example, a `disabled` prop on an `input` element, or an `open` prop on an overlay.
+
+<Code
+  code={`
+// Don't do
+<Popover closed={false} />
+<Button enabled={false} />
+`}
+/>
+
+<Code
+  code={`
+// Do
+<Popover open />
+<Button disabled />
 `}
 />
 
@@ -143,9 +121,7 @@ Always default to enums over booleans, when the variants or permutations are mut
 
 ## Control
 
-Controlled `input` components should be controlled via `value` and `onChange` props.
-
-Controlled components should always be able to function in an uncontrolled manner, when `value` is not provided. Default state should be configured via `defaultValue`.
+Stateful components, such as inputs or popovers, should always be able to be controlled through their APIs. For example, the state of a `Textfield` component could be controlled via `value` and `onChange` props, but should be able to function without them.
 
 ## Refs
 
@@ -155,45 +131,10 @@ Refs should always be forwarded, either to the outermost DOM element, or to the 
   language="javascript"
   code={`
 // Do
-const MyInput = React.forwardRef(function MyInput(props, userRef) {
-  return (
-    <div>
-      <input ref={userRef} />
-    </div>
-  )
-})
+const Input = React.forwardRef(function Input(props, userRef) {
+  return <input ref={userRef} />;
+});
 `}
-/>
-
-## Avoid renderThing Methods
-
-Avoid methods that produce JSX markup separately from a components return statement. This typically means that the render method can be abstracted to a separate component.
-
-<Code
-  code={`// Don't do
-function MyComponent() {
-  const thingOne = React.useMemo(() => <div>render a thing </div>, []);
-  const renderThingTwo = () => <div>render another thing</div>;
-  return (
-    <div>
-      {thingOne}
-      {renderThingTwo()}
-    </div>
-  );
-} `}
-/>
-
-<Code
-  language="jsx"
-  code={`// Do
-function MyComponent() {
-return (
-  <div>
-    <ThingOne />
-    <ThingTwo />
-  </div>
-  );
-} `}
 />
 
 ## Other Conventions to Avoid
@@ -204,9 +145,7 @@ Avoid render props (or children functions), and higher order components. If you 
   code={`
 // Don't do
 <Component>
-  {(state) => (
-    <div />
-  )}
+  {(state) => <div />}
 </Component>
 
 <Component render={(state) => <div />} />

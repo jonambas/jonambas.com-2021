@@ -45,10 +45,10 @@ function JonsApp({ Component, pageProps }: AppProps) {
       </Theme>
       <Script
         strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=UA-29511296-7"
+        src="https://www.googletagmanager.com/gtag/js?id=G-W9GY49S601"
       />
       <Script id="google-analytics" strategy="afterInteractive">
-        {`window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'UA-29511296-7');`}
+        {`window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-W9GY49S601');`}
       </Script>
     </>
   );

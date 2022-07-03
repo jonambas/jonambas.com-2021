@@ -103,7 +103,7 @@ Boolean prop names should be chosen based on their **default value**. For exampl
 
 ## Enums vs Booleans
 
-Always default to enums over booleans, when the variants or permutations are mutually exclusive.
+Always default to enums over booleans, when the variants or permutations are mutually exclusive. This allows you to add variants without introducing new props.
 
 <Code
   code={`
@@ -114,7 +114,7 @@ Always default to enums over booleans, when the variants or permutations are mut
 <Code
   code={`
 // Do
-<Text textAlign="center" />
+<Text align="center" />
 <Tag color="red" />
 `}
 />

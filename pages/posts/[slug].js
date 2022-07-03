@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import * as runtime from "react/jsx-runtime";
 import { run } from "@mdx-js/mdx";
 import { Box } from "@sweatpants/box";
@@ -13,6 +14,24 @@ import Clamp from "../../components/Clamp";
 import ArrowLeftIcon from "../../components/ArrowLeftIcon";
 import readingTime from "reading-time";
 
+const StyledP = styled.p`
+  a {
+    border-radius: 3px;
+  }
+  a:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px white, 0 0 0 6px ${({ theme }) => theme.colors.blue};
+  }
+`;
+
+const StyledLink = styled.a`
+  border-radius: 3px;
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px white, 0 0 0 6px ${({ theme }) => theme.colors.blue};
+  }
+`;
+
 const components = {
   Image,
   Code,
@@ -22,8 +41,9 @@ const components = {
   h3: (props) => <Clamp as="h3" pt="500" {...props} />,
   h4: (props) => <Clamp as="h4" pt="500" {...props} />,
   p: (props) => (
-    <Clamp as="p" lineHeight="1.9em" serif fontSize="18px" {...props} />
+    <Clamp as={StyledP} lineHeight="1.9em" serif fontSize="18px" {...props} />
   ),
+  a: (props) => <StyledLink {...props} />,
   ul: (props) => (
     <Clamp as="ul" lineHeight="1.9em" serif fontSize="18px" {...props} />
   ),

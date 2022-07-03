@@ -21,7 +21,7 @@ const Home: NextPage<{ posts: Record<string, any>[] }> = (props) => {
     <div>
       <Head {...meta} />
       <Box as="main">
-        <Box fontSize="2rem" fontWeight="600" mb="400">
+        <Box as="h1" fontSize="2rem" fontWeight="600" mb="400">
           Jon Ambas
         </Box>
         <Box color="gray" mb="600">

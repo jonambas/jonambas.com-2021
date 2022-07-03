@@ -17,7 +17,9 @@ const StyledLink = styled(Box)<React.ComponentPropsWithRef<"a">>`
   }
 
   &:focus-visible {
-    box-shadow: 0 0 0 2px ${({ theme }) => theme.colors.blue};
+    outline: none;
+    border-color: transparent;
+    box-shadow: 0 0 0 3px white, 0 0 0 6px ${({ theme }) => theme.colors.blue};
   }
 `;
 

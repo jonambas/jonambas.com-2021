@@ -26,6 +26,12 @@ const StyledWrapper = styled(Box)<CardLinkProps>`
     border: ${({ theme }) => theme.borders.cardHover};
     box-shadow: 0 0 0 4px ${({ theme }) => theme.colors.lighterBlue};
   }
+
+  &:focus-visible {
+    outline: none;
+    border-color: transparent;
+    box-shadow: 0 0 0 3px white, 0 0 0 6px ${({ theme }) => theme.colors.blue};
+  }
 `;
 
 const CardLink = React.forwardRef<HTMLAnchorElement, CardLinkProps>(

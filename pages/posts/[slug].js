@@ -67,7 +67,7 @@ export default function Post(props) {
   }, [content]);
 
   return (
-    <Box m="0 auto" maxWidth="880px" lineHeight="1.5em">
+    <Box as="main" m="0 auto" maxWidth="880px" lineHeight="1.5em">
       <Head title={title} description={description} image={image}>
         {canonical ? <link rel="canonical" href={canonical} /> : null}
       </Head>

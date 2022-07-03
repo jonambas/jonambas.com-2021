@@ -1,9 +1,9 @@
 import React from "react";
 import { Box } from "@sweatpants/box";
-import CardLink from "../components/CardLink";
 import Head from "../components/Head";
-import ArrowLeftIcon from "../components/ArrowLeftIcon";
+import { ArrowLeftIcon, DownloadIcon } from "../components/icons";
 import Footer from "../components/Footer";
+import SmallCardLink from "../components/SmallCardLink";
 import resume from "../content/resume";
 import meta from "../content/meta";
 
@@ -23,17 +23,29 @@ export default function Resume() {
   return (
     <Box maxWidth="620px">
       <Head title="Jon Ambas' Resume" description={meta.description} />
-      <Box mb="800">
-        <CardLink href="/" type="internal" p="200" display="inline-block">
-          <CardLink.Description>
-            <Box display="flex" alignItems="center">
-              <ArrowLeftIcon />
-              <Box as="span" px="200">
-                Back
-              </Box>
+      <Box mb="800" display="flex" style={{ gap: "1rem" }}>
+        <SmallCardLink href="/" type="internal">
+          <Box display="flex" alignItems="center">
+            <ArrowLeftIcon />
+            <Box as="span" px="200">
+              Back
             </Box>
-          </CardLink.Description>
-        </CardLink>
+          </Box>
+        </SmallCardLink>
+        <SmallCardLink
+          type="external"
+          href="/JonAmbas-Resume-2022.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          download
+        >
+          <Box display="flex" alignItems="center">
+            <DownloadIcon />
+            <Box as="span" px="200">
+              Download PDF
+            </Box>
+          </Box>
+        </SmallCardLink>
       </Box>
 
       <Box as="h1" mb="800">

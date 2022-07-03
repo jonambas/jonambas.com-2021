@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@mdx-js/mdx": "2.1.2",
+    "@styled-system/css": "^5.1.5",
     "@sweatpants/box": "0.0.8",
     "@sweatpants/inline": "0.0.7",
     "@sweatpants/screenreaderonly": "0.0.7",

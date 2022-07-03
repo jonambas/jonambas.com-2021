@@ -1,8 +1,9 @@
 import React from "react";
-import { Box, BoxOwnProps } from "@sweatpants/box";
-import { Stack } from "@sweatpants/stack";
 import Link from "next/link";
 import styled from "styled-components";
+import css from "@styled-system/css";
+import { Box, BoxOwnProps } from "@sweatpants/box";
+import { Stack } from "@sweatpants/stack";
 
 type CardLinkProps = React.PropsWithChildren<{
   href: React.ComponentProps<typeof Link>["href"];
@@ -18,19 +19,21 @@ const StyledWrapper = styled(Box)<CardLinkProps>`
   transition: 0.15s;
   height: 100%;
 
-  &:hover,
-  a:focus &,
-  &:focus {
-    outline: none;
-    color: ${({ theme }) => theme.colors.blue};
-    border: ${({ theme }) => theme.borders.cardHover};
-    box-shadow: 0 0 0 4px ${({ theme }) => theme.colors.lighterBlue};
+  &:hover {
+    ${css({
+      color: "blue",
+      border: "cardHover",
+      boxShadow: "cardHover",
+    })}
   }
 
   &:focus-visible {
     outline: none;
     border-color: transparent;
-    box-shadow: 0 0 0 3px white, 0 0 0 6px ${({ theme }) => theme.colors.blue};
+    ${css({
+      color: "blue",
+      boxShadow: "focus",
+    })}
   }
 `;
 
@@ -44,15 +47,15 @@ const CardLink = React.forwardRef<HTMLAnchorElement, CardLinkProps>(
       p = "400",
       display = "block",
     } = props;
-    const NextLinkWrapper = type === "internal" ? Link : "div";
-    const wrapperAttrs =
+    const NextLinkWrapper = type === "internal" ? Link : React.Fragment;
+    const outerAttrs =
       type === "internal"
         ? {
-            passHref: true,
+            href,
           }
         : {};
     return (
-      <NextLinkWrapper href={href} {...wrapperAttrs}>
+      <NextLinkWrapper {...outerAttrs}>
         <StyledWrapper
           as="a"
           display={display}

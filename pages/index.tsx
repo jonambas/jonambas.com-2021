@@ -3,10 +3,9 @@ import { Box } from "@sweatpants/box";
 import { Inline } from "@sweatpants/inline";
 import { format, parseISO } from "date-fns";
 import CardLink from "../components/CardLink";
+import SmallCardLink from "../components/SmallCardLink";
 import ButtonLink from "../components/ButtonLink";
-import GithubIcon from "../components/GithubIcon";
-import DocumentIcon from "../components/DocumentIcon";
-import ArrowRightIcon from "../components/ArrowRightIcon";
+import { ArrowRightIcon, DocumentIcon, GithubIcon } from "../components/icons";
 import Footer from "../components/Footer";
 import Head from "../components/Head";
 import projects from "../content/projects";
@@ -90,15 +89,9 @@ const Home: NextPage<{ posts: Record<string, any>[] }> = (props) => {
 
         <Inline space="200">
           {social.map((profile, i) => (
-            <CardLink
-              key={i}
-              href={profile.href}
-              type="external"
-              display="inline-block"
-              p="300"
-            >
-              <CardLink.Description>{profile.title}</CardLink.Description>
-            </CardLink>
+            <SmallCardLink key={i} href={profile.href} type="external">
+              {profile.title}
+            </SmallCardLink>
           ))}
         </Inline>
       </Box>

@@ -7,30 +7,13 @@ import { format, parseISO } from "date-fns";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
 import Head from "../../components/Head";
 import Image from "../../components/Image";
-import CardLink from "../../components/CardLink";
+import SmallCardLink from "../../components/SmallCardLink";
 import Footer from "../../components/Footer";
 import Code from "../../components/Code";
 import Clamp from "../../components/Clamp";
-import ArrowLeftIcon from "../../components/ArrowLeftIcon";
+import { ArrowLeftIcon } from "../../components/icons";
+import Link from "../../components/Link";
 import readingTime from "reading-time";
-
-const StyledP = styled.p`
-  a {
-    border-radius: 3px;
-  }
-  a:focus-visible {
-    outline: none;
-    box-shadow: 0 0 0 3px white, 0 0 0 6px ${({ theme }) => theme.colors.blue};
-  }
-`;
-
-const StyledLink = styled.a`
-  border-radius: 3px;
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px white, 0 0 0 6px ${({ theme }) => theme.colors.blue};
-  }
-`;
 
 const components = {
   Image,
@@ -41,15 +24,16 @@ const components = {
   h3: (props) => <Clamp as="h3" pt="500" {...props} />,
   h4: (props) => <Clamp as="h4" pt="500" {...props} />,
   p: (props) => (
-    <Clamp as={StyledP} lineHeight="1.9em" serif fontSize="18px" {...props} />
+    <Clamp as="p" lineHeight="1.9em" serif fontSize="18px" {...props} />
   ),
-  a: (props) => <StyledLink {...props} />,
+  a: Link,
   ul: (props) => (
     <Clamp as="ul" lineHeight="1.9em" serif fontSize="18px" {...props} />
   ),
   code: (props) => (
     <Box
-      bg="lightBlue"
+      bg="#E2E9F6"
+      color="#334E82"
       fontFamily="mono"
       fontSize="0.8em"
       as="span"
@@ -98,16 +82,14 @@ export default function Post(props) {
             gridTemplateColumns={["2% 1fr 2%", "15% 1fr 15%"]}
           >
             <Clamp>
-              <CardLink href="/" type="internal" p="200" display="inline-block">
-                <CardLink.Description>
-                  <Box display="flex" alignItems="center">
-                    <ArrowLeftIcon />
-                    <Box as="span" px="200">
-                      Back
-                    </Box>
+              <SmallCardLink href="/" type="internal">
+                <Box display="flex" alignItems="center">
+                  <ArrowLeftIcon />
+                  <Box as="span" px="200">
+                    Back
                   </Box>
-                </CardLink.Description>
-              </CardLink>
+                </Box>
+              </SmallCardLink>
             </Clamp>
             <Clamp as="h1" mt={["600", "900"]} fontSize="3rem" lineHeight="1em">
               {title}

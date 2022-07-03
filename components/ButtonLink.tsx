@@ -1,4 +1,5 @@
 import React from "react";
+import css from "@styled-system/css";
 import { Box } from "@sweatpants/box";
 import Link from "next/link";
 import styled from "styled-components";
@@ -8,18 +9,23 @@ const StyledLink = styled(Box)<React.ComponentPropsWithRef<"a">>`
   text-decoration: none;
   border: 1px solid ${({ theme }) => theme.colors.blue};
 
-  &:hover,
-  &:focus {
-    outline: none;
-    background: transparent;
-    box-shadow: 0 0 0 4px ${({ theme }) => theme.colors.lighterBlue};
-    color: ${({ theme }) => theme.colors.blue};
+  &:hover {
+    ${css({
+      color: "blue",
+      border: "cardHover",
+      boxShadow: "cardHover",
+      bg: "transparent",
+    })}
   }
 
   &:focus-visible {
     outline: none;
     border-color: transparent;
-    box-shadow: 0 0 0 3px white, 0 0 0 6px ${({ theme }) => theme.colors.blue};
+    ${css({
+      color: "blue",
+      bg: "transparent",
+      boxShadow: "focus",
+    })}
   }
 `;
 

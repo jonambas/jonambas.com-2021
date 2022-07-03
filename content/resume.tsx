@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "../components/Link";
 
 const resume = {
   meta: {
@@ -17,8 +18,8 @@ const resume = {
             "Work closely with product managers and designers to define, understand and clarify goals and product requirements",
             <>
               Design, build, and maintain{" "}
-              <a href="https://github.com/SparkPost/matchbox">Matchbox</a>, a
-              design system, saving SparkPost 4,100 design hours and 9,500
+              <Link href="https://github.com/SparkPost/matchbox">Matchbox</Link>
+              , a design system, saving SparkPost 4,100 design hours and 9,500
               engineering hours per year
             </>,
             "Anticipate how product decisions and aspects of the design system affect the design, engineering and user experience",

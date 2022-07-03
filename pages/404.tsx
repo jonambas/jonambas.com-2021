@@ -2,8 +2,8 @@ import React from "react";
 import { Box } from "@sweatpants/box";
 import { Stack } from "@sweatpants/stack";
 import Head from "../components/Head";
-import CardLink from "../components/CardLink";
-import ArrowLeftIcon from "../components/ArrowLeftIcon";
+import SmallCardLink from "../components/SmallCardLink";
+import { ArrowLeftIcon } from "../components/icons";
 
 export default function NotFound() {
   return (
@@ -14,16 +14,14 @@ export default function NotFound() {
           <p>Page not found</p>
 
           <div>
-            <CardLink href="/" type="internal" p="300" display="inline-block">
-              <CardLink.Description>
-                <Box display="flex" alignItems="center">
-                  <ArrowLeftIcon />
-                  <Box as="span" px="200">
-                    Back to jonambas.com
-                  </Box>
+            <SmallCardLink href="/" type="internal">
+              <Box display="flex" alignItems="center">
+                <ArrowLeftIcon />
+                <Box as="span" px="200">
+                  Back to jonambas.com
                 </Box>
-              </CardLink.Description>
-            </CardLink>
+              </Box>
+            </SmallCardLink>
           </div>
         </Stack>
       </Box>

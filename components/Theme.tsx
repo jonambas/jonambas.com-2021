@@ -31,6 +31,10 @@ const Theme = (props: React.PropsWithChildren<{}>) => {
           card: "1px solid #d9e0e6",
           cardHover: "1px solid #0000FF",
         },
+        shadows: {
+          cardHover: "0 0 0 4px #e8f3ff",
+          focus: "0 0 0 3px white, 0 0 0 6px #0000FF",
+        },
         fonts: {
           serif:
             "Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",

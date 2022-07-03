@@ -20,11 +20,6 @@ const projects = [
     description: "A component library built on styled-system",
   },
   {
-    href: "https://github.com/jonambas/proply",
-    title: "Proply",
-    description: "A tool to help explore React app's component usage",
-  },
-  {
     href: "https://github.com/jonambas/sketch-reporter",
     title: "Sketch Reporter",
     description: "A UI Kit coverage reporter for Sketch",

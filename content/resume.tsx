@@ -15,17 +15,16 @@ const resume = {
           startDate: "June 2019",
           endDate: "Present",
           experience: [
-            "Work closely with product managers and designers to define, understand and clarify goals and product requirements",
             <>
               Design, build, and maintain{" "}
               <Link href="https://github.com/SparkPost/matchbox">Matchbox</Link>
               , a design system, saving SparkPost 4,100 design hours and 9,500
               engineering hours per year
             </>,
+            "Coordinate with product managers, designers and engineers to define, understand and clarify goals and product requirements",
             "Anticipate how product decisions and aspects of the design system affect the design, engineering and user experience",
-            "Manage projects, planning and prioritization for frontend engineering and design teams",
-            "Produce prototypes to support the research, design, development and testing of new product features",
-            "Provide technical mentorship and guidance to frontend and UX engineers",
+            "Oversee projects, planning and prioritization for frontend and design teams",
+            "Provide mentorship and direction to designers and frontend engineers",
           ],
         },
         {
@@ -34,6 +33,7 @@ const resume = {
           endDate: "June 2019",
           experience: [
             "Worked within a distributed team of engineers responsible for SparkPost's React web application",
+            "Lead design and technical implementation of several product initiatives",
             "Provided creative and technical guidance to marketing, product, developer relations, and other engineering teams on several projects",
           ],
         },
@@ -46,8 +46,7 @@ const resume = {
       endDate: "October 2016",
       experience: [
         "Worked with a distributed team of engineers and designers to build Laravel applications",
-        "Produced wireframes and prototypes using Sketch, Invision, and After Effects",
-        "Designed and created branding concepts, logos, and style guides",
+        "Produced product designs, prototypes, branding concepts and style guides using Sketch, Invision, and After Effects",
         "Provided technical direction to other developers to assist the development of Wordpress websites",
       ],
     },

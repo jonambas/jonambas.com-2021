@@ -9,7 +9,7 @@ import meta from "../content/meta";
 
 function Experience(props) {
   return (
-    <Box as="ul">
+    <Box as="ul" pl={["400", "600"]}>
       {props.experience.map((item, i) => (
         <Box as="li" mb="400" lineHeight="1.4em" key={i}>
           {item}

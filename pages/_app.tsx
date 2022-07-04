@@ -15,10 +15,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .code code span {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 0.8rem;
     font-family: ${({ theme }) => theme.fonts.mono};
-    line-height: 1.8em;
+    line-height: 1.6em;
   }
 
   .code pre {

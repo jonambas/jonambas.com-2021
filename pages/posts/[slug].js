@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import * as runtime from "react/jsx-runtime";
 import { run } from "@mdx-js/mdx";
 import { Box } from "@sweatpants/box";
@@ -24,11 +23,23 @@ const components = {
   h3: (props) => <Clamp as="h3" pt="500" {...props} />,
   h4: (props) => <Clamp as="h4" pt="500" {...props} />,
   p: (props) => (
-    <Clamp as="p" lineHeight="1.9em" serif fontSize="18px" {...props} />
+    <Clamp
+      as="p"
+      lineHeight={["1.6em", "1.8em"]}
+      serif
+      fontSize={["17px", "18px"]}
+      {...props}
+    />
   ),
   a: Link,
   ul: (props) => (
-    <Clamp as="ul" lineHeight="1.9em" serif fontSize="18px" {...props} />
+    <Clamp
+      as="ul"
+      lineHeight={["1.6em", "1.8em"]}
+      serif
+      fontSize={["17px", "18px"]}
+      {...props}
+    />
   ),
   code: (props) => (
     <Box
@@ -79,7 +90,7 @@ export default function Post(props) {
         <article>
           <Box
             display="grid"
-            gridTemplateColumns={["2% 1fr 2%", "15% 1fr 15%"]}
+            gridTemplateColumns={["2% 1fr 2%", "8% 1fr 8%", "15% 1fr 15%"]}
           >
             <Clamp>
               <SmallCardLink href="/" type="internal">

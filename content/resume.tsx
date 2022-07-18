@@ -8,10 +8,10 @@ const resume = {
   },
   jobs: [
     {
-      company: "SparkPost (MessageBird)",
+      company: "MessageBird",
       positions: [
         {
-          position: "Lead UX Engineer",
+          position: "Staff UX Engineer",
           startDate: "June 2019",
           endDate: "Present",
           experience: [

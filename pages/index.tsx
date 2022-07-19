@@ -24,7 +24,7 @@ const Home: NextPage<{ posts: Record<string, any>[] }> = (props) => {
           Jon Ambas
         </Box>
         <Box color="gray" mb="600">
-          Lead UX engineer at MessageBird, building design systems.
+          Staff UX engineer at MessageBird, building design systems.
         </Box>
         <Box>
           <ButtonLink href="/resume">

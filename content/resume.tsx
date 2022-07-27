@@ -8,7 +8,7 @@ const resume = {
   },
   jobs: [
     {
-      company: "MessageBird",
+      company: "MessageBird (SparkPost)",
       positions: [
         {
           position: "Staff UX Engineer",
@@ -18,7 +18,7 @@ const resume = {
             <>
               Design, build, and maintain{" "}
               <Link href="https://github.com/SparkPost/matchbox">Matchbox</Link>
-              , a design system, saving SparkPost 4,100 design hours and 9,500
+              , a design system, saving SparkPost 4,000 design hours and 9,000
               engineering hours per year
             </>,
             "Coordinate with product managers, designers and engineers to define, understand and clarify goals and product requirements",

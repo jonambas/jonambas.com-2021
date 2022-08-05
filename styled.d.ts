@@ -1,10 +1,7 @@
 import "styled-components";
+import { defaulTheme } from "./components/Theme";
 
+type Theme = typeof defaulTheme;
 declare module "styled-components" {
-  export interface DefaultTheme {
-    space: Record<string, string>;
-    colors: Record<string, string>;
-    borders: Record<string, string>;
-    fonts: Record<string, string>;
-  }
+  export interface DefaultTheme extends Theme {}
 }

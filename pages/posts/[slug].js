@@ -43,14 +43,14 @@ const components = {
   ),
   code: (props) => (
     <Box
-      bg="#E2E9F6"
-      color="#334E82"
+      bg="accentLight"
+      color="accent"
       fontFamily="mono"
-      fontSize="0.8em"
+      fontSize="0.78em"
       as="span"
-      px="4px"
-      py="2px"
-      borderRadius="3px"
+      px="0.3em"
+      py="0.15em"
+      borderRadius="small"
     >
       {props.children}
     </Box>

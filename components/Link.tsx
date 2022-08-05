@@ -1,11 +1,19 @@
 import React, { ComponentPropsWithoutRef, FC } from "react";
 import styled from "styled-components";
+import css from "@styled-system/css";
 
 const StyledLink = styled.a`
-  border-radius: 3px;
+  ${css({
+    color: "accent",
+    borderRadius: "small",
+    transition: "0.15s",
+  })}
+
   &:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px white, 0 0 0 6px ${({ theme }) => theme.colors.blue};
+    ${css({
+      boxShadow: "focusTight",
+    })}
   }
 `;
 

@@ -7,11 +7,12 @@ import styled from "styled-components";
 const StyledLink = styled(Box)<React.ComponentPropsWithRef<"a">>`
   box-sizing: border-box;
   text-decoration: none;
-  border: 1px solid ${({ theme }) => theme.colors.blue};
+  border: 1px solid ${({ theme }) => theme.colors.accent};
+  transition: 0.15s;
 
   &:hover {
     ${css({
-      color: "blue",
+      color: "accent",
       border: "cardHover",
       boxShadow: "cardHover",
       bg: "transparent",
@@ -22,7 +23,7 @@ const StyledLink = styled(Box)<React.ComponentPropsWithRef<"a">>`
     outline: none;
     border-color: transparent;
     ${css({
-      color: "blue",
+      color: "accent",
       bg: "transparent",
       boxShadow: "focus",
     })}
@@ -41,8 +42,8 @@ const ButtonLink = React.forwardRef<
         display="inline-flex"
         alignItems="center"
         href={href}
-        bg="blue"
-        borderRadius="3px"
+        bg="accent"
+        borderRadius="small"
         color="white"
         p="300"
         fontSize="0.9rem"

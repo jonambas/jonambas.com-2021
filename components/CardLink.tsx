@@ -21,7 +21,7 @@ const StyledWrapper = styled(Box)<CardLinkProps>`
 
   &:hover {
     ${css({
-      color: "blue",
+      color: "accent",
       border: "cardHover",
       boxShadow: "cardHover",
     })}
@@ -31,7 +31,7 @@ const StyledWrapper = styled(Box)<CardLinkProps>`
     outline: none;
     border-color: transparent;
     ${css({
-      color: "blue",
+      color: "accent",
       boxShadow: "focus",
     })}
   }
@@ -62,7 +62,7 @@ const CardLink = React.forwardRef<HTMLAnchorElement, CardLinkProps>(
           position="relative"
           p={p}
           border="card"
-          borderRadius="5px"
+          borderRadius="large"
           color="black"
           href={`${href}`}
           ref={userRef}

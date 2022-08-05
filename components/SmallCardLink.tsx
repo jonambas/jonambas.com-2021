@@ -12,7 +12,7 @@ const StyledLink = styled.a`
 
   ${css({
     border: "card",
-    borderRadius: "5px",
+    borderRadius: "large",
     color: "gray",
     fontSize: "0.9rem",
     lineHeight: "1.3em",
@@ -21,7 +21,7 @@ const StyledLink = styled.a`
 
   &:hover {
     ${css({
-      color: "blue",
+      color: "accent",
       border: "cardHover",
       boxShadow: "cardHover",
     })}
@@ -31,7 +31,7 @@ const StyledLink = styled.a`
     outline: none;
     border-color: transparent;
     ${css({
-      color: "blue",
+      color: "accent",
       boxShadow: "focus",
     })}
   }

@@ -13,7 +13,7 @@ const social = [
   },
   {
     href: "https://www.linkedin.com/in/jonambas/",
-    title: "Linkedin",
+    title: "LinkedIn",
   },
 ];
 

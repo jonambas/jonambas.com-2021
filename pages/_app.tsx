@@ -5,31 +5,12 @@ import { createGlobalStyle } from "styled-components";
 import Theme from "../components/Theme";
 
 const GlobalStyle = createGlobalStyle`
+  html { 
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, Helvetica, sans-serif;
+  }
+
   * {
     box-sizing: border-box;
-  }
-
-  a {
-    color: ${({ theme }) => theme.colors.blue};
-    transition: 0.15s;
-  }
-
-  .code code span {
-    font-size: 0.8rem;
-    font-family: ${({ theme }) => theme.fonts.mono};
-    line-height: 1.6em;
-  }
-
-  .code pre {
-    margin: 0 !important;
-    padding: 0;
-    border: none !important;
-  }
-
-  .code {
-    border: ${({ theme }) => theme.borders.card};
-    border-radius: 4px;
-    overflow-x: auto;
   }
 `;
 

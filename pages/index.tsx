@@ -5,7 +5,7 @@ import { format, parseISO } from "date-fns";
 import CardLink from "../components/CardLink";
 import SmallCardLink from "../components/SmallCardLink";
 import ButtonLink from "../components/ButtonLink";
-import { ArrowRightIcon, DocumentIcon, GithubIcon } from "../components/icons";
+import { ArrowRightIcon, DocumentIcon } from "../components/icons";
 import Footer from "../components/Footer";
 import Head from "../components/Head";
 import projects from "../content/projects";
@@ -48,7 +48,7 @@ const Home: NextPage<{ posts: Record<string, any>[] }> = (props) => {
           {projects.map((project, i) => (
             <CardLink
               key={i}
-              icon={GithubIcon}
+              icon={project.icon}
               href={project.href}
               type="external"
             >

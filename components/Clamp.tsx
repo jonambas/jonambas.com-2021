@@ -1,9 +1,11 @@
-import React from "react";
+import type { ComponentType } from "react";
 import { Box, BoxProps } from "@sweatpants/box";
 
 type ClampProps = {
   serif?: boolean;
-} & Omit<BoxProps<"div">, "color">;
+  as?: keyof JSX.IntrinsicElements | ComponentType<any>;
+  color?: BoxProps["color"];
+} & Omit<BoxProps<"div">, "color" | "as">;
 
 function Clamp(props: ClampProps) {
   const { serif, ...rest } = props;

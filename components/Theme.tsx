@@ -1,4 +1,4 @@
-import React from "react";
+import { FC, PropsWithChildren } from "react";
 import { SweatpantsProvider } from "@sweatpants/theme";
 import { DefaultTheme } from "styled-components";
 
@@ -45,7 +45,7 @@ export const defaultTheme: DefaultTheme = {
   },
 };
 
-const Theme = (props: React.PropsWithChildren<{}>) => {
+const Theme: FC<PropsWithChildren> = (props) => {
   return (
     <SweatpantsProvider theme={defaultTheme}>
       {props.children}

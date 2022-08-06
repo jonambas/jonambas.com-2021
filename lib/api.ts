@@ -3,6 +3,18 @@ import path from "path";
 import matter from "gray-matter";
 import { compileSync } from "@mdx-js/mdx";
 
+export type PostSlugs = Array<string>;
+export type PostFields =
+  | "title"
+  | "date"
+  | "slug"
+  | "content"
+  | "description"
+  | "canonical"
+  | "image";
+
+export type Post = Partial<Record<PostFields, string>>;
+
 const postsDir = path.join(process.cwd(), "_posts");
 
 export function getPostSlugs(): Array<string> {
@@ -11,8 +23,8 @@ export function getPostSlugs(): Array<string> {
 
 export function getPostBySlug(
   slug: string,
-  fields: Array<string> = []
-): Record<string, any> {
+  fields: Array<PostFields> = []
+): Partial<Post> {
   const realSlug = slug.replace(/\.mdx$/, "");
   const fullPath = path.join(postsDir, `${realSlug}.mdx`);
   const contents = fs.readFileSync(fullPath, "utf8");
@@ -41,7 +53,7 @@ export function getPostBySlug(
   return result;
 }
 
-export function getAllPosts(fields: string[] = []) {
+export function getAllPosts(fields: PostFields[] = []) {
   const slugs = getPostSlugs();
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))

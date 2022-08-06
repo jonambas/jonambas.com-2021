@@ -1,9 +1,11 @@
-import React from "react";
+import { useState, useEffect, ComponentType } from "react";
 import * as runtime from "react/jsx-runtime";
+import type { GetStaticProps, GetStaticPaths, NextPage } from "next";
 import { run } from "@mdx-js/mdx";
 import { Box } from "@sweatpants/box";
 import { format, parseISO } from "date-fns";
-import { getPostBySlug, getAllPosts } from "../../lib/api";
+import readingTime from "reading-time";
+import { getPostBySlug, getAllPosts, Post as PostType } from "../../lib/api";
 import Head from "../../components/Head";
 import Image from "../../components/Image";
 import SmallCardLink from "../../components/SmallCardLink";
@@ -12,9 +14,8 @@ import Code from "../../components/Code";
 import Clamp from "../../components/Clamp";
 import { ArrowLeftIcon } from "../../components/icons";
 import Link from "../../components/Link";
-import readingTime from "reading-time";
 
-const components = {
+const components: Record<string, ComponentType<any>> = {
   Image,
   Code,
   Clamp,
@@ -67,15 +68,15 @@ const components = {
   ),
 };
 
-export default function Post(props) {
+const Post: NextPage<PostType> = (props) => {
   const { content, title, date, description, canonical, image } = props;
-  const [mdx, setMdx] = React.useState();
-  const Content = mdx ? mdx.default : null;
+  const [mdx, setMdx] = useState<any>();
+  const Content = (mdx ? mdx.default : null) as ComponentType<any>;
   const readTime = content
     ? readingTime(content, { wordsPerMinute: 180 })
     : null;
 
-  React.useEffect(() => {
+  useEffect(() => {
     (async () => {
       setMdx(await run(content, runtime));
     })();
@@ -106,7 +107,7 @@ export default function Post(props) {
               {title}
             </Clamp>
             <Clamp as="p" mb={["600", "900"]} color="gray" fontSize="0.9rem">
-              {format(parseISO(date), "MMM d yyyy")} &middot; {readTime?.text}
+              {format(parseISO(date), "MMM d yyyy")} &middot; {readTime.text}
             </Clamp>
             {Content && <Content components={components} />}
             <Clamp>
@@ -117,10 +118,11 @@ export default function Post(props) {
       </div>
     </Box>
   );
-}
+};
 
-export async function getStaticProps({ params }) {
-  const post = getPostBySlug(params.slug, [
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = typeof params.slug === "string" ? params.slug : params.slug[0];
+  const post = getPostBySlug(slug, [
     "title",
     "date",
     "slug",
@@ -133,9 +135,9 @@ export async function getStaticProps({ params }) {
   return {
     props: post,
   };
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const posts = getAllPosts(["slug"]);
 
   return {
@@ -148,4 +150,6 @@ export async function getStaticPaths() {
     }),
     fallback: false,
   };
-}
+};
+
+export default Post;

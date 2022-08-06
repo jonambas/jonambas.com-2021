@@ -1,4 +1,3 @@
-import React from "react";
 import { Box } from "@sweatpants/box";
 import Head from "../components/Head";
 import { ArrowLeftIcon, DownloadIcon } from "../components/icons";
@@ -6,8 +5,9 @@ import Footer from "../components/Footer";
 import SmallCardLink from "../components/SmallCardLink";
 import resume from "../content/resume";
 import meta from "../content/meta";
+import { FC } from "react";
 
-function Experience(props) {
+const Experience: FC<{ experience: Array<string | JSX.Element> }> = (props) => {
   return (
     <Box as="ul" pl={["400", "600"]}>
       {props.experience.map((item, i) => (
@@ -17,7 +17,7 @@ function Experience(props) {
       ))}
     </Box>
   );
-}
+};
 
 export default function Resume() {
   return (

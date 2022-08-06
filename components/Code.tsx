@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { css } from "@styled-system/css";
-import { Box } from "@sweatpants/box";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import style from "react-syntax-highlighter/dist/cjs/styles/prism/atom-dark";
 import Clamp from "./Clamp";

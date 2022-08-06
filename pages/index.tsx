@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import { Box } from "@sweatpants/box";
 import { Inline } from "@sweatpants/inline";
 import { format, parseISO } from "date-fns";
@@ -11,9 +11,9 @@ import Head from "../components/Head";
 import projects from "../content/projects";
 import social from "../content/social";
 import meta from "../content/meta";
-import { getAllPosts } from "../lib/api";
+import { getAllPosts, Post } from "../lib/api";
 
-const Home: NextPage<{ posts: Record<string, any>[] }> = (props) => {
+const Home: NextPage<{ posts: Post[] }> = (props) => {
   const { posts } = props;
 
   return (

@@ -1,4 +1,3 @@
-import React from "react";
 import { Box } from "@sweatpants/box";
 import { Stack } from "@sweatpants/stack";
 import Head from "../components/Head";
